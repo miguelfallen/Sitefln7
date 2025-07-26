@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" href="./assets/logo.png" type="image/png">
+    <link rel="icon" href="{{ url_for('static', filename='assets/logo.png') }}" type="image/png">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FLN7 AI</title>
-    <link rel="stylesheet" href="./style.css" />
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 </head>
 <body>
     <header>
-        <img src="./assets/painel.png" alt="logo do fln" />
-
+        <img src="{{ url_for('static', filename='assets/painel.png') }}" alt="logo do fln" />
     </header>
 
     <main>
@@ -23,8 +25,6 @@
                 <p>Ask About Strategies, Builds, and Tips For Your Games!</p>
 
                 <form id="form">
-                
-
                     <select id="gameselect" translate="no"> 
                         <option value="">Select a Game</option>
                         <option value="csgo">CS:GO</option>
@@ -37,87 +37,21 @@
                         <option value="valorant">Valorant</option>
                     </select>
                     <input id="questioninput" type="text" placeholder="Ex: Best Build for ADC..." required>
-
                     <button id="askbutton">
                         To Ask
                     </button>
-
                 </form>
                 <div id="airesponse" class="hidden">
                     <div class="response_content">
-                    
                     </div>
-
-
                 </div>
-
-
             </div>
-            </section>
-
+        </section>
     </main>
+
 <script src= 'https://unpkg.com/showdown/dist/showdown.min.js'></script>
-<script src="./script.js"></script>
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="icon" href="./assets/logo.png" type="image/png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FLN7 AI</title>
-    <link rel="stylesheet" href="./style.css" />
-</head>
-<body>
-    <header>
-        <img src="./assets/painel.png" alt="logo do fln" />
 
-    </header>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 
-    <main>
-        <section>
-            <div>
-                <h2 class="title">Meta Assistant</h2>
-                <p>Ask About Strategies, Builds, and Tips For Your Games!</p>
-
-                <form id="form">
-                
-
-                    <select id="gameselect" translate="no"> 
-                        <option value="">Select a Game</option>
-                        <option value="csgo">CS:GO</option>
-                        <option value="fortnite">Fortnite</option>
-                        <option value="free fire">Free Fire</option>
-                        <option value="league of Legends">League of Legends</option>
-                        <option value="Minecraft">Minecraft</option>
-                        <option value="mobile legends">Mobile Legends</option>
-                        <option value="terraria">Terraria</option>
-                        <option value="valorant">Valorant</option>
-                    </select>
-                    <input id="questioninput" type="text" placeholder="Ex: Best Build for ADC..." required>
-
-                    <button id="askbutton">
-                        To Ask
-                    </button>
-
-                </form>
-                <div id="airesponse" class="hidden">
-                    <div class="response_content">
-                    
-                    </div>
-
-
-                </div>
-
-
-            </div>
-            </section>
-
-    </main>
-<script src= 'https://unpkg.com/showdown/dist/showdown.min.js'></script>
-<script src="./script.js"></script>
 </body>
 </html>
