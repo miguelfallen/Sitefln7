@@ -3,7 +3,8 @@ const questionInput = document.getElementById('questioninput')
 const askbutton = document.getElementById('askbutton')
 const form = document.getElementById('form')
 const airesponse = document.getElementById('airesponse')
-const flaskURL = "http://192.168.18.19:5000/api/pergunta";
+const flaskURL = "https://sitefln7.onrender.com/api/pergunta";
+
 
 const markdownToHTML = (text) => {
     const converter = new showdown.Converter()
