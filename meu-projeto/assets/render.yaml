@@ -1,0 +1,6 @@
+  services:
+  - type: web
+    name: rengar-api
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn app:app
