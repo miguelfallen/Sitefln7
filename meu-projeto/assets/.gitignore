@@ -1,0 +1,21 @@
+# Arquivos de configuração sensíveis
+.env
+
+# Cache do Python
+__pycache__/
+*.pyc
+
+# Dependências locais
+venv/
+env/
+
+# Logs e arquivos temporários
+*.log
+*.tmp
+
+# Banco de dados local (se houver)
+*.sqlite3
+
+# Configurações do sistema
+.DS_Store
+Thumbs.db
