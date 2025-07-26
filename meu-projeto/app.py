@@ -1,18 +1,19 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template, send_from_directory # <<< ADICIONEI render_template e send_from_directory
 from flask_cors import CORS
 from datetime import datetime
 import requests
 import os
 
-app = Flask(__name__)
+# <<< MODIFIQUEI ESTA LINHA para incluir static_folder e template_folder
+app = Flask(__name__, static_folder='static', template_folder='templates')
 CORS(app)
 
 API_KEY = os.getenv("GEMINI_API_KEY")
 
-# 🏠 Rota principal para evitar tela de log no Render
+# 🏠 Rota principal para servir o frontend <<< ALTEREI ESTA ROTA
 @app.route("/")
 def home():
-    return jsonify({"mensagem": "API está ativa e funcionando!"})
+    return render_template("index.html") # <<< AGORA ELA RETORNA SEU HTML
 
 # 🚀 Rota principal de perguntas
 @app.route("/api/pergunta", methods=["POST"])
