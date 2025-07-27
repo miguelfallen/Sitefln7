@@ -5,7 +5,9 @@
 }
 
 body {
-    background-image: url("{{ url_for('static', filename='assets/bg.jpg') }}"); 
+    /* CORRIGIDO: Caminho da imagem de fundo. style.css está em static/,
+       e assets/ está em static/. Então, para acessar assets/, precisamos 'voltar' um nível. */
+    background-image: url("../assets/bg.jpg"); 
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
@@ -22,18 +24,17 @@ header {
 }
 
 header img {
-
     max-width: 100%;
     width: 15rem;
-    height: auto; 
+    height: auto;
 }
 
 main {
     max-width: 36rem;
-    width: 90%; 
+    width: 90%; /* Ajustado para ser mais flexível em telas menores */
     margin: 3rem auto;
 }
-
+/*Cor da borda*/
 section {
     background-image: linear-gradient(90deg, #ec1111 0%, #b7f60d 50%, #e41494 100%);
     border-radius: 0.625rem;
@@ -77,6 +78,8 @@ form {
     gap: 0.85rem;
     flex-wrap: wrap;
     margin: 1.25rem 0;
+    /* Adicionado para garantir que os itens se ajustem em linha ou quebrem */
+    align-items: center; 
 }
 
 input,
@@ -86,11 +89,11 @@ select {
     padding: 0.675rem;
     font-size: 0.875rem;
     background-color: #00000066;
-    flex-grow: 1; 
-    min-width: 150px; 
+    flex-grow: 1; /* Permite que eles cresçam */
+    /* Removido min-width aqui e movido para media query para maior flexibilidade */
+    width: 100%; /* Garante que eles ocupem a largura total em mobile */
 }
 button {
-    
     width: 100%; 
     border: 0;
     background-image: linear-gradient(90deg, #ec1111 0%, #b7f60d 50%, #e41494 100%);
@@ -144,24 +147,25 @@ button.disabled {
     }
 }
 
+/* Media Queries para ajustes finos em telas menores */
 @media (max-width: 600px) {
     main {
-        width: 95%; 
-        margin: 1.5rem auto; 
+        width: 95%; /* Ocupa um pouco mais de largura em telas muito pequenas */
+        margin: 1.5rem auto; /* Diminui a margem vertical em mobile */
     }
     
     section > div {
-        padding: 1.5rem; 
+        padding: 1.5rem; /* Diminui o padding interno da seção */
+    }
+
+    /* Força os campos do formulário a empilharem em telas pequenas */
+    form {
+        flex-direction: column; 
     }
 
     input,
     select {
-        min-width: unset; 
-        width: 100%; 
-    }
-
-    form {
-        flex-direction: column; 
-        gap: 1rem;
+        width: 100%; /* Garante que ocupem 100% da largura do contêiner */
+        /* min-width: unset; */ /* Pode ser útil para flexibilidade total, mas 100% já é forte */
     }
 }
