@@ -1,10 +1,11 @@
 form {
     display: flex;
+    flex-direction: row; /* Padrão para desktop */
     gap: 0.85rem;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Permite quebrar linha em telas menores */
     margin: 1.25rem 0;
     align-items: center; 
-    justify-content: center; /* Centraliza os itens quando não preenchem 100% */
+    justify-content: space-between; /* Distribui espaço entre os itens */
 }
 
 input,
@@ -15,8 +16,9 @@ select {
     font-size: 0.875rem;
     background-color: #00000066;
     flex-grow: 1; 
-    /* Removido o width: 100% daqui para que flex-grow seja mais dominante em desktop.
-       O 100% será aplicado na media query para mobile. */
+    flex-shrink: 1; /* Permite que encolha */
+    flex-basis: 0; /* Permite que o flex-grow distribua o espaço mais uniformemente */
+    min-width: 150px; /* Garante uma largura mínima para desktop, mas será sobrescrito em mobile */
     box-sizing: border-box; 
 }
 button {
@@ -84,19 +86,18 @@ button.disabled {
     }
 
     form {
-        flex-direction: column; 
-        align-items: stretch; 
-        gap: 1rem; /* Mantendo o espaçamento uniforme */
+        flex-direction: column; /* Empilha os itens no mobile */
+        align-items: stretch; /* Faz os itens se esticarem para 100% da largura */
+        gap: 1rem; /* Espaçamento entre os itens empilhados */
     }
 
     input,
     select {
-        width: 100% !important; /* Adiciona !important para forçar a largura total */
-        box-sizing: border-box; 
-        min-height: 44px; /* Garante uma altura mínima para toque em mobile */
+        width: 100%; /* Força 100% de largura */
+        min-width: unset; /* Remove qualquer min-width que possa interferir */
+        min-height: 44px; /* Garante altura mínima para toque */
         margin-bottom: 0; 
-        flex-basis: auto; /* Garante que a base do flex seja automática */
-        flex-shrink: 1; /* Permite que o item encolha */
+        flex-basis: auto; /* Deixa o flexbox decidir a base, mas width: 100% domina */
     }
     
     button {
