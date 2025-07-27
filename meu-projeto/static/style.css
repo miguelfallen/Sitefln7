@@ -86,18 +86,20 @@ button.disabled {
     form {
         flex-direction: column; 
         align-items: stretch; 
-        gap: 1rem; /* Aumenta o espaçamento entre os itens empilhados para melhor legibilidade */
+        gap: 1rem; /* Mantendo o espaçamento uniforme */
     }
 
     input,
     select {
-        width: 100%; 
-        /* box-sizing: border-box; já está fora da media query, mas não custa garantir. */
+        width: 100% !important; /* Adiciona !important para forçar a largura total */
+        box-sizing: border-box; 
         min-height: 44px; /* Garante uma altura mínima para toque em mobile */
-        margin-bottom: 0; /* Garante que não haja margens extras */
+        margin-bottom: 0; 
+        flex-basis: auto; /* Garante que a base do flex seja automática */
+        flex-shrink: 1; /* Permite que o item encolha */
     }
     
     button {
-        margin-top: 0; /* Garante que o botão esteja alinhado com o formulário */
+        margin-top: 0; 
     }
 }
