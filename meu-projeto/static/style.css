@@ -5,7 +5,7 @@
 }
 
 body {
-    background-image: url("/static/assets/bg.jpg"); 
+    background-image: url("/static/assets/bg.jpg"); /* APENAS ESTA LINHA PARA A IMAGEM DE FUNDO */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
@@ -29,7 +29,7 @@ header img {
 
 main {
     max-width: 36rem;
-    width: 90%;
+    width: 90%; /* APENAS ESTA LINHA */
     margin: 3rem auto;
 }
 
@@ -86,8 +86,9 @@ select {
     padding: 0.675rem;
     font-size: 0.875rem;
     background-color: #00000066;
-    flex-grow: 1; 
-    width: 100%; 
+    flex-grow: 1; /* APENAS ESTA LINHA */
+    width: 100%; /* APENAS ESTA LINHA */
+    box-sizing: border-box; /* Adicionado para garantir que padding seja incluído na largura total */
 }
 button {
     width: 100%; 
@@ -145,22 +146,22 @@ button.disabled {
 
 @media (max-width: 600px) {
     main {
-        width: 95%;
-        margin: 1.5rem auto;
+        width: 95%; /* APENAS ESTA LINHA */
+        margin: 1.5rem auto; /* APENAS ESTA LINHA */
     }
-
+    
     section > div {
-        padding: 1.5rem;
+        padding: 1.5rem; /* APENAS ESTA LINHA */
     }
 
     form {
-        flex-direction: column;
+        flex-direction: column; 
         align-items: stretch; 
     }
 
     input,
     select {
-        width: 100%; 
+        width: 100%; /* APENAS ESTA LINHA */
         box-sizing: border-box; 
     }
 }
