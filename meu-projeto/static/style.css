@@ -1,11 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("/static/assets/bg.jpg"); /* Caminho correto para a imagem de fundo */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    background-color: #141212;
+    color: white;
+}
+body * {
+    font-family: "inter";
+    line-height: 160%;
+}
+header {
+    padding-top: 2px;
+    text-align: center;
+}
+
+header img {
+    max-width: 100%;
+    width: 15rem;
+    height: auto;
+}
+
+main {
+    max-width: 36rem;
+    width: 90%;
+    margin: 3rem auto;
+}
+
+section {
+    background-image: linear-gradient(90deg, #ec1111 0%, #b7f60d 50%, #e41494 100%);
+    border-radius: 0.625rem;
+    padding-top: 4px;
+}
+
+section > div {
+    padding: 2rem;
+    padding-top: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: #2a2634;
+}
+
+section h2 {
+    letter-spacing: -0.47px;
+}
+
+section p {
+    letter-spacing: -0.18px;
+    color: #A1A1AA;
+}
+
+/*Animações*/
+
+main section {
+    opacity: 0;
+    transform: translateY(2rem);
+    animation-name: appear;
+    animation-duration: 700ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes appear {
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 form {
     display: flex;
-    flex-direction: row; /* Padrão para desktop */
     gap: 0.85rem;
-    flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+    flex-wrap: wrap;
     margin: 1.25rem 0;
     align-items: center; 
-    justify-content: space-between; /* Distribui espaço entre os itens */
 }
 
 input,
@@ -16,9 +87,9 @@ select {
     font-size: 0.875rem;
     background-color: #00000066;
     flex-grow: 1; 
-    flex-shrink: 1; /* Permite que encolha */
-    flex-basis: 0; /* Permite que o flex-grow distribua o espaço mais uniformemente */
-    min-width: 150px; /* Garante uma largura mínima para desktop, mas será sobrescrito em mobile */
+    /* Manter o width: 100% aqui para o comportamento "dividido" */
+    width: 100%; /* Este width: 100% e o flex-grow em uma linha, junto com flex-wrap no form, 
+                    podem causar o layout "dividido" que você mencionou em mobile. */
     box-sizing: border-box; 
 }
 button {
@@ -86,18 +157,15 @@ button.disabled {
     }
 
     form {
-        flex-direction: column; /* Empilha os itens no mobile */
-        align-items: stretch; /* Faz os itens se esticarem para 100% da largura */
-        gap: 1rem; /* Espaçamento entre os itens empilhados */
+        flex-direction: column; 
+        /* align-items: stretch; Removido para possivelmente contribuir para o comportamento "dividido" */
+        gap: 0.85rem; /* Voltando para o gap original */
     }
 
     input,
     select {
-        width: 100%; /* Força 100% de largura */
-        min-width: unset; /* Remove qualquer min-width que possa interferir */
-        min-height: 44px; /* Garante altura mínima para toque */
-        margin-bottom: 0; 
-        flex-basis: auto; /* Deixa o flexbox decidir a base, mas width: 100% domina */
+        width: 100%; 
+        /* box-sizing: border-box; mantido, mas o !important e min-width: unset foram removidos */
     }
     
     button {
