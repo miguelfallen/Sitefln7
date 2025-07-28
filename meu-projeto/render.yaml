@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: Sitefln7
+    name: rengar-api
     env: python
     buildCommand: "pip install -r requirements.txt"
     startCommand: "gunicorn app:app"
