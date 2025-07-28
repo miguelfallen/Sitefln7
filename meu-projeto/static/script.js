@@ -47,7 +47,7 @@ const enviarformulario = async (event) => {
     askbutton.disabled = true
     askbutton.textContent = 'asking...'
     askbutton.classList.add('loading')
-
+    
 
     //Caso dê erro no gemini
     try {
@@ -64,6 +64,7 @@ const enviarformulario = async (event) => {
         askbutton.disabled = false
         askbutton.textContent = 'To Ask'
         askbutton.classList.remove('loading')
+        question == ''
     }
 
 
