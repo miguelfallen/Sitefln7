@@ -64,13 +64,8 @@ const enviarformulario = async (event) => {
         askbutton.disabled = false
         askbutton.textContent = 'To Ask'
         askbutton.classList.remove('loading')
-        question == ''
+        questionInput == ''
     }
-
-
-
-
-
     
 }
 
