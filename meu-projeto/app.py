@@ -4,7 +4,7 @@ from datetime import datetime
 import requests
 import os
 
-# <<< MODIFIQUEI ESTA LINHA para incluir static_folder e template_folder
+# MODIFIQUEI ESTA LINHA para incluir static_folder e template_folder
 app = Flask(__name__, static_folder='static', template_folder='templates')
 CORS(app)
 
